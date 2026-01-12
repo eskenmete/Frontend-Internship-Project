@@ -1,0 +1,71 @@
+{
+box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/*genel sayfa*/
+body{
+  padding:40px;
+  background-color: #ffffff;
+}
+
+/*üst bilgi*/
+.info-card {
+  border: 2px solid #000;
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/*yan yana sütunlar*/
+.board {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/*ortak card*/
+.card {
+  width: 280px;
+  min-height: 500px;
+  border:2px solid #000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+/*card başlığı*/
+.card-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/*renkler*/
+.open {
+  background-color: #C0C0C0;
+}
+.progress {
+  background-color: #30d5c8;
+}
+.done {
+  background-color: #98FB98;
+}
+
+/*task*/
+.task {
+  background-color: #ffffff;
+  border: 2px solid #000;
+  padding: 12px;
+  margin-bottom: 16px;
+
+  text-align: center;
+}
+/*done task*/
+.done-task {
+  text-decoration: line-through;
+}
+  
