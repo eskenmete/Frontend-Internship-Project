@@ -2,18 +2,19 @@
 box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Verdana, sans-serif;
 }
 
 /*genel sayfa*/
 body{
   padding:40px;
-  background-color: #ffffff;
+  background-color: #F5F5DC;
 }
 
 /*üst bilgi*/
 .info-card {
   border: 2px solid #000;
+  border-radius: 20px;
   padding: 20px;
   margin-bottom: 40px;
   background-color: #ffffff;
@@ -35,6 +36,7 @@ body{
   width: 280px;
   min-height: 500px;
   border:2px solid #000;
+  border-radius: 24px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -59,6 +61,7 @@ body{
 .task {
   background-color: #ffffff;
   border: 2px solid #000;
+  border-radius: 12px;
   padding: 12px;
   margin-bottom: 16px;
 
@@ -69,3 +72,4 @@ body{
   text-decoration: line-through;
 }
   
+
