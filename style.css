@@ -4,7 +4,11 @@ box-sizing: border-box;
   padding: 0;
   font-family: Verdana, sans-serif;
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
 /*genel sayfa*/
 body{
   padding:40px;
@@ -71,5 +75,16 @@ body{
 .done-task {
   text-decoration: line-through;
 }
+@media (max-width: 768px) {
+  .board {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
   
+
 
