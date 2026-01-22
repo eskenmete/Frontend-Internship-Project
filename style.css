@@ -1,90 +1,155 @@
-{
-box-sizing: border-box;
+/* RESET */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Verdana, sans-serif;
 }
+
+/* SAYFA */
+body {
+  padding: 40px;
+  background-color: #F5F5DC;
+}
+
+/* CONTAINER */
 .container {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
-/*genel sayfa*/
-body{
-  padding:40px;
-  background-color: #F5F5DC;
-}
 
-/*üst bilgi*/
+/* INFO */
 .info-card {
   border: 2px solid #000;
   border-radius: 20px;
   padding: 20px;
-  margin-bottom: 40px;
-  background-color: #ffffff;
-
+  background: #fff;
   color: red;
   font-size: 32px;
   font-weight: bold;
 }
 
-/*yan yana sütunlar*/
-.board {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
+/* BUTTON */
+.add-task-btn {
+  width: 140px;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
 }
 
-/*ortak card*/
+/* BOARD */
+.board {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* CARD */
 .card {
   width: 280px;
   min-height: 500px;
-  border:2px solid #000;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 2px solid #000;
   border-radius: 24px;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
-/*card başlığı*/
+
 .card-title {
   text-align: center;
-  margin-bottom: 20px;
-}
-/*renkler*/
-.open {
-  background-color: #C0C0C0;
-}
-.progress {
-  background-color: #30d5c8;
-}
-.done {
-  background-color: #98FB98;
+  margin-bottom: 16px;
 }
 
-/*task*/
+.open { background: #c0c0c0; }
+.progress { background: #30d5c8; }
+.done { background: #98fb98; }
+
+/* TASK */
 .task {
-  background-color: #ffffff;
+  background: #fff;
   border: 2px solid #000;
   border-radius: 12px;
   padding: 12px;
-  margin-bottom: 16px;
-
+  margin-bottom: 12px;
   text-align: center;
+  cursor: pointer;
 }
-/*done task*/
+
 .done-task {
   text-decoration: line-through;
 }
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+  background: #fff;
+  width: 340px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid #000;
+}
+#closeModalBtn {
+  background-color: red;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-body label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.modal-body input,
+.modal-body textarea,
+.modal-body select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#saveBtn {
+  background-color: green;
+}
+#cancelBtn {
+  background-color: orange;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .board {
     flex-direction: column;
-    gap: 24px;
   }
-
   .card {
     width: 100%;
   }
 }
-  
-
-
