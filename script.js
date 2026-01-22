@@ -97,6 +97,15 @@ saveBtn.onclick = () => {
   closeModal();
 };
 
+/* INFO CARD GÜNCELLEME */
+function updateInfoCard() {
+  const tasks = getTasks();
+  const openCount = tasks.filter(t => t.status === "open").length;
+
+  const info = document.querySelector(".info-card");
+  info.textContent = `Hoş geldin Mete, aktif ${openCount} adet görevin bulunuyor`;
+}
+
 /* RENDER */
 function renderTasks() {
   [openCol, progressCol, doneCol].forEach(col =>
@@ -108,14 +117,55 @@ function renderTasks() {
     div.className = "task";
     div.textContent = task.name;
     if (task.status === "done") div.classList.add("done-task");
+
+    /* DRAG ÖZELLİĞİ */
+    div.draggable = true;
+    div.dataset.id = task.id;
+
+    div.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("taskId", task.id);
+    });
+
     div.onclick = () => openModal(task);
 
     (task.status === "open" ? openCol :
      task.status === "progress" ? progressCol : doneCol
     ).appendChild(div);
   });
+
+  updateInfoCard(); // her render sonrası info güncelle
 }
 
+/* DRAG DROP ALANLARI */
+[openCol, progressCol, doneCol].forEach(col => {
+  col.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  col.addEventListener("drop", (e) => {
+    const taskId = e.dataTransfer.getData("taskId");
+    moveTask(taskId, col);
+  });
+});
+
+/* TASK TAŞIMA */
+function moveTask(taskId, column) {
+  const tasks = getTasks();
+  const task = tasks.find(t => t.id == taskId);
+
+  if (column.classList.contains("open")) {
+    task.status = "open";
+  } else if (column.classList.contains("progress")) {
+    task.status = "progress";
+  } else if (column.classList.contains("done")) {
+    task.status = "done";
+  }
+
+  setTasks(tasks);
+  renderTasks();
+}
+
+/* FORM RESET */
 function clearForm() {
   taskName.value = "";
   taskDesc.value = "";
@@ -124,4 +174,5 @@ function clearForm() {
   saveBtn.disabled = true;
 }
 
+/* SAYFA AÇILINCA */
 renderTasks();
