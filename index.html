@@ -1,46 +1,73 @@
 <!DOCTYPE html>
-<html lang=“tr”>
-
+<html lang="tr">
 <head>
-<meta charset=“UTF-8”>
-<title> Task Board</title>
-<link rel=“stylesheet” href=“style.css>
+  <meta charset="UTF-8" />
+  <title>Task Board</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<div class="container">
-<!— üst bilgi —>
-<div class=“info-card”>
-Hoş geldin Mete, aktif 9 adet görevin bulunuyor
-</div>
+  <div class="container">
 
-<!—board—>
-<div class=“board”>
+    <!-- ÜST BİLGİ -->
+    <div class="info-card">
+      Hoş geldin Mete, aktif 9 adet görevin bulunuyor
+    </div>
 
-<!—open—>
-<div class=“card open”>
-<h2 class=“card-title”>OPEN</h2>
+    <!-- TASK EKLE -->
+    <button id="openModalBtn" class="add-task-btn">TASK EKLE</button>
 
-<div class=“task”>task_name</div>
-<div class=“task”>task_name</div>
-<div class=“task”>task_name</div>
-</div>
+    <!-- BOARD -->
+    <div class="board">
+      <div class="card open">
+        <h2 class="card-title">OPEN</h2>
+      </div>
 
-<!— in progress —>
-<div class=“card progress”>
-<h2 class=“card-title”>IN PROGRESS</h2>
+      <div class="card progress">
+        <h2 class="card-title">IN PROGRESS</h2>
+      </div>
 
-<div class=“task”>task_name</div>
-</div>
+      <div class="card done">
+        <h2 class="card-title">DONE</h2>
+      </div>
+    </div>
+  </div>
 
-<!— done —>
-<div class=“card done”>
-<h2 class=“card-title”>DONE</h2>
+  <!-- MODAL -->
+  <div class="modal hidden" id="taskModal">
+    <div class="modal-content">
 
-<div class=“task done-task”>task_name</div>
-</div>
-</div>
-</div>
+      <div class="modal-header">
+        <h3 id="modalTitle">Yeni Task Ekle</h3>
+        <button id="closeModalBtn">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <label>Task Name *</label>
+        <input type="text" id="taskName" maxlength="50" />
+
+        <label>Task Description</label>
+        <textarea id="taskDescription" maxlength="200"></textarea>
+
+        <label>Task Date *</label>
+        <input type="date" id="taskDate" />
+
+        <label>Task Status</label>
+        <select id="taskStatus">
+          <option value="open">OPEN</option>
+          <option value="progress">IN PROGRESS</option>
+          <option value="done">DONE</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button id="cancelBtn">Cancel</button>
+        <button id="saveBtn" disabled>Save</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
